@@ -1,6 +1,7 @@
 package com.multi.mvc01.dao;
 
 import com.multi.mvc01.dto.ProductDTO;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+@Repository
 public class ProductDAO {
 
     public int update(ProductDTO dto) {
