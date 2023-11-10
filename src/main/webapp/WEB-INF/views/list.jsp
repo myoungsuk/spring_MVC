@@ -1,4 +1,5 @@
-<%@ page import="com.multi.mvc01.dto.BbsDTO2" %><%--
+<%@ page import="com.multi.mvc01.dto.BbsDTO2" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Kang
   Date: 11/9/23
@@ -10,13 +11,18 @@
 <head>
     <title>Title</title>
 </head>
-<body bgcolor = "yellow">
-    <%
-        BbsDTO2 bag = (BbsDTO2) request.getAttribute("list");
-    %>
+<body bgcolor="yellow">
+<%
+    ArrayList<BbsDTO2> list = (ArrayList<BbsDTO2>) request.getAttribute("list");
+    for (BbsDTO2 bag : list) {
+
+%>
 게시판 id <%= bag.getId() %> <br>
-게시판 title <%= bag.getTitle() %> <br>
-게시판 content <%= bag.getContent() %> <br>
+<a href = "one?id=<%= bag.getId() %>">게시판 title <%= bag.getTitle() %> </a>
+<br>
 게시판 writer <%= bag.getWriter() %> <br>
+<hr color="red">
+<% } %>
+
 </body>
 </html>

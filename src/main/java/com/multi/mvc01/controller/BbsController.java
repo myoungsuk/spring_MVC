@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class BbsController {
 
@@ -20,9 +22,12 @@ public class BbsController {
     }
 
 	@RequestMapping("list")
-    public void list() throws Exception {
+    public void list(Model model) throws Exception {
 		BbsDAO dao = new BbsDAO();
-		dao.list();
+		ArrayList<BbsDTO2> list = dao.list();
+        System.out.println("list.size() : " + list.size());
+
+        model.addAttribute("list", list);
 
     }
 
