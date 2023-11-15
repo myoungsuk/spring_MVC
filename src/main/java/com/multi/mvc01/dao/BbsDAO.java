@@ -1,6 +1,6 @@
 package com.multi.mvc01.dao;
 
-import com.multi.mvc01.dto.BbsDTO2;
+import com.multi.mvc01.dto.BbsDTO;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -28,7 +28,7 @@ public class BbsDAO {
 		}catch (Exception e) {
 		}
 	}
-	public int insert(BbsDTO2 dto) {
+	public int insert(BbsDTO dto) {
 		int result = 0;
 		try {
 			// 3.SQL문 결정/생성
@@ -53,7 +53,7 @@ public class BbsDAO {
 	}
 	
 	
-	public int update(BbsDTO2 dto) {
+	public int update(BbsDTO dto) {
 		int result = 0;
 		try {
 			// 3.SQL문 결정/생성
@@ -76,7 +76,7 @@ public class BbsDAO {
 	}
 	
 
-	public int delete(BbsDTO2 dto) {
+	public int delete(BbsDTO dto) {
 		int result = 0;
 		try {
 			// 3.SQL문 결정/생성
@@ -96,7 +96,7 @@ public class BbsDAO {
 
 	}
 	// 리스트 전체 보기
-	public ArrayList<BbsDTO2> list() throws Exception {
+	public ArrayList<BbsDTO> list() throws Exception {
 		// 3.SQL문 결정/생성
 		String sql = "select * from bbs order by id desc";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -104,13 +104,13 @@ public class BbsDAO {
 
 		// 4. sql문 mysql서버로 전송
 		// 5. 검색결과를 ArrayList에 넣어서 return
-		ArrayList<BbsDTO2> list = new ArrayList<>();
+		ArrayList<BbsDTO> list = new ArrayList<>();
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) { // true이면
 			// rs내의 한 행씩 아래로 내려가면서 그 행에 결과가 들어있는지 체크
 			// 내부적으로 한 행씩 가르키게 됨: 커서!
 			// 가방을 하나 만들어서
-			BbsDTO2 dto = new BbsDTO2();
+			BbsDTO dto = new BbsDTO();
 			dto.setId(rs.getInt(1));
 			dto.setTitle(rs.getString(2));
 			dto.setContent(rs.getString(3));
@@ -125,7 +125,7 @@ public class BbsDAO {
 	}
 
 	// 리스트 중에서 선택한 물건 하나 보기
-	public BbsDTO2 one(BbsDTO2 dto) throws Exception {
+	public BbsDTO getOneBbs(BbsDTO dto) throws Exception {
 		// 3.SQL문 결정/생성
 		String sql = "select * from bbs where id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -134,7 +134,7 @@ public class BbsDAO {
 
 		// 4. sql문 mysql서버로 전송
 		ResultSet rs = ps.executeQuery();
-		BbsDTO2 dto2 = new BbsDTO2();
+		BbsDTO dto2 = new BbsDTO();
 		if (rs.next()) { // true이면
 			// rs내의 한 행씩 아래로 내려가면서 그 행에 결과가 들어있는지 체크
 			// 내부적으로 한 행씩 가르키게 됨: 커서!

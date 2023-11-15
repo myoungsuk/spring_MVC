@@ -1,4 +1,4 @@
-<%@ page import="com.multi.mvc01.dto.BbsDTO2" %>
+<%@ page import="com.multi.mvc01.dto.BbsDTO" %>
 <%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Kang
@@ -13,8 +13,8 @@
 </head>
 <body bgcolor="yellow">
 <%
-    ArrayList<BbsDTO2> list = (ArrayList<BbsDTO2>) request.getAttribute("list");
-    for (BbsDTO2 bag : list) {
+    ArrayList<BbsDTO> list = (ArrayList<BbsDTO>) request.getAttribute("list");
+    for (BbsDTO bag : list) {
 
 %>
 게시판 id <%= bag.getId() %> <br>

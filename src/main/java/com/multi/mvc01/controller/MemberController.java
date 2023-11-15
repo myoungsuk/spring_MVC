@@ -18,7 +18,7 @@ public class MemberController {
 
 	//버튼을 눌러서 요청 --> 함수 하나!!!
 	@RequestMapping("insert")
-	public void insert(MemberDTO bag) {
+	public String insert(MemberDTO bag) {
 		//함수(bag) ==> 요청할 때 만든다.(프로토타입)
 		//함수(bag) ==> 클라이언트로부터 전달된 값을 가방을 만들어서 넣어주세요ㅣ.
 		System.out.println(bag);
@@ -32,6 +32,8 @@ public class MemberController {
 	    	resultText = "회원가입에 실패했습니다.";
 	    }
 	    System.out.println(resultText);
+
+		return "redirect:member.jsp";
 	}	
 	
 	@RequestMapping("login")

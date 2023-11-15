@@ -13,7 +13,7 @@
 		    response.sendRedirect(“bbs.jsp”);
 		4. db처리후 결과가 1이 아니면 ~~~ 저와함께 구현!
      -->
-     <jsp:useBean id="bag" class="com.multi.mvc01.dto.BbsDTO2"></jsp:useBean>
+     <jsp:useBean id="bag" class="com.multi.mvc01.dto.BbsDTO"></jsp:useBean>
      <jsp:setProperty property="*" name="bag"/>
      
      <%

@@ -2,7 +2,7 @@ package com.multi.mvc01.dto;
 
 public class ReplyDTO {
 	private String id;
-	private String oriid;
+	private int oriid;
 	private String content;
 	private String writer;
 	
@@ -12,10 +12,10 @@ public class ReplyDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getOriid() {
+	public int getOriid() {
 		return oriid;
 	}
-	public void setOriid(String oriid) {
+	public void setOriid(int oriid) {
 		this.oriid = oriid;
 	}
 	public String getContent() {

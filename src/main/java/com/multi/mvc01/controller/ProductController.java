@@ -62,4 +62,6 @@ public class ProductController {
 
         model.addAttribute("one2", bag);
     }
+
+
 }

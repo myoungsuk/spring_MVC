@@ -1,4 +1,4 @@
-<%@ page import="com.multi.mvc01.dto.BbsDTO2" %>
+<%@ page import="com.multi.mvc01.dto.BbsDTO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.multi.mvc01.dto.ProductDTO" %><%--
   Created by IntelliJ IDEA.
