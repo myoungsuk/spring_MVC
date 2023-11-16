@@ -98,7 +98,7 @@ public class BbsDAO {
 	// 리스트 전체 보기
 	public ArrayList<BbsDTO> list() throws Exception {
 		// 3.SQL문 결정/생성
-		String sql = "select * from bbs order by id desc";
+		String sql = "select * from bbs";
 		PreparedStatement ps = con.prepareStatement(sql);
 		System.out.println("3.ok----------");
 
