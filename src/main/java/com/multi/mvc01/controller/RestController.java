@@ -2,10 +2,9 @@ package com.multi.mvc01.controller;
 
 import com.multi.mvc01.dao.BbsDAO;
 import com.multi.mvc01.dto.BbsDTO;
-import com.multi.mvc01.dto.BookDTO;
+import com.multi.mvc01.dto.MapDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -62,5 +61,15 @@ public class RestController {
 
         return list;
 
+    }
+
+    @RequestMapping("map1")
+    @ResponseBody
+    public MapDTO kakaoMap(){
+        MapDTO mapDTO = new MapDTO();
+        mapDTO.setLat(37.498095);
+        mapDTO.setLon(127.027610);
+
+        return mapDTO;
     }
 }
