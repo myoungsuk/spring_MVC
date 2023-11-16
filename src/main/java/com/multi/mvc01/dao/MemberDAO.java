@@ -15,29 +15,32 @@ import java.sql.ResultSet;
 @Repository //싱글톤 객체 + db예외처리, 창고, 저장소
 public class MemberDAO {
 
-	// 스프링이 램에 있는 mybatis를 찾아서 주소를 변수에 넣어준다.
-	@Autowired
-	SqlSessionTemplate my;
+    // 스프링이 램에 있는 mybatis를 찾아서 주소를 변수에 넣어준다.
+    @Autowired
+    SqlSessionTemplate my;
 
-	// 각각의 처리를 메서드(함수)로 만들어라.
-	// 가입처리
-	public int insert(MemberDTO dto) {
-		int result = my.insert("member.create", dto);
+    // 각각의 처리를 메서드(함수)로 만들어라.
+    // 가입처리
+    public int insert(MemberDTO dto) {
+        int result = my.insert("member.createMember", dto);
 
-		return result; //1, 0
-	}
+        return result; //1, 0
+    }
 
-	// 로그인처리
-	public boolean login(MemberDTO dto) throws Exception {
-		String id = dto.getId();
-		String pw = dto.getPw();
+    // 로그인처리
+    public boolean login(MemberDTO dto) {
 
-		MemberDTO resultDTO = my.selectOne("member.login", dto);
+        try {
+            int resultDTO = my.selectOne("member.login", dto);
 
-		if (resultDTO != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+            if (resultDTO == 1) {
+                // 추가적인 비밀번호 확인 로직이 필요합니다
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

@@ -27,7 +27,7 @@
             $("#submitCommentButton").click(function () {
                 var content = $("#commentInput").val();
                 var oriid = '<%= bbsDTO.getId() %>';
-                var writer = '<%= session.getAttribute("loggedInUserId") %>';
+                var writer = '<%= session.getAttribute("id") %>';
 
                 $.ajax({
                     url: '/addComment',
@@ -36,6 +36,7 @@
                     data: {
                         oriid: oriid,
                         content: content,
+                        writer: writer
                     },
                     success: function (response) {
                         if(response.result === "success") {
@@ -43,6 +44,7 @@
                             var newComment = "<div class='comment'>" +
                                 "<p>내용: " + content + "</p>" +
                                 "<p>작성자: " + writer + "</p>" +
+                                "<p>orid: " + oriid + "</p>" +
                                 "</div>";
                             $("#comments").append(newComment);
                             $("#commentInput").val(''); // 입력 필드를 비웁니다.
@@ -79,7 +81,6 @@
         <p>내용: <%= replyDTO.getContent() %></p>
         <p>작성자: <%= replyDTO.getWriter() %></p>
     </div>
-    <br>
     <% } %>
 </div>
 </body>

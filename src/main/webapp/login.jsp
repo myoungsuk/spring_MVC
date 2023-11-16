@@ -6,11 +6,11 @@
     <%
     	String id = request.getParameter("id");
     	String pw = request.getParameter("pw");
-    
+
     	MemberDTO bag = new MemberDTO();
     	bag.setId(id);
     	bag.setPw(pw);
-    	
+
     	MemberDAO dao = new MemberDAO();
     	boolean result = dao.login(bag); //boolean(true/false)
     	if(result){ //if(조건) {조건이 true이면 이 괄호를 실행해라!}
@@ -19,7 +19,7 @@
     	}
     	//화면을 첫화면으로 넘어가자.!
     	response.sendRedirect("member.jsp");
-    	//서버가 클라이언트(브라우저)에게 member.jsp를 
+    	//서버가 클라이언트(브라우저)에게 member.jsp를
     	//요청하라고 명령!!
     %>
     <!--2. dao를 이용해서 db처리, login(bag) -->
