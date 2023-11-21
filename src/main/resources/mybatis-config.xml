@@ -10,7 +10,8 @@
       <typeAlias type="com.multi.mvc01.dto.BookDTO" alias="bookVO"/>
       <typeAlias type="com.multi.mvc01.dto.ReplyDTO" alias="replyVO"/>
       <typeAlias type="com.multi.mvc01.dto.BbsDTO" alias="BbsDTO"/>
-
+      <typeAlias type="com.multi.mvc01.dto.MapDTO" alias="mapDTO"/>
+      <typeAlias type="com.multi.mvc01.dto.ChartDTO" alias="chartDTO"/>
    </typeAliases>
 
    <mappers>
@@ -19,6 +20,8 @@
       <mapper resource="mapper/bookSQL.xml" />
       <mapper resource = "mapper/replySQL.xml"/>
       <mapper resource = "mapper/bbsSQL.xml" />
+      <mapper resource = "mapper/mapSQL.xml" />
+      <mapper resource = "mapper/chartSQL.xml" />
    </mappers>
 
 </configuration>

@@ -1,10 +1,21 @@
 package com.multi.mvc01.dto;
 
 public class MapDTO {
+
+    private String location;
     private double lat;
     private double lon;
 
 
+
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public double getLat() {
         return lat;
