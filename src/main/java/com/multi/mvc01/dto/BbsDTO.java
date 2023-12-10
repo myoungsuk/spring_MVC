@@ -1,49 +1,44 @@
 package com.multi.mvc01.dto;
 
+import com.multi.mvc01.entity.BbsEntity;
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 public class BbsDTO {
-	private int id;
+	private Long id;
 	private String title;
 	private String content;
 	private String writer;
 
-	public int getId() {
-		return id;
+//	public static ArticleDto from(Article entity) {
+//		return new ArticleDto(
+//				entity.getId(),
+//				UserAccountDto.from(entity.getUserAccount()),
+//				entity.getTitle(),
+//				entity.getContent(),
+//				entity.getHashtags().stream()
+//						.map(HashtagDto::from)
+//						.collect(Collectors.toUnmodifiableSet())
+//				,
+//				entity.getCreatedAt(),
+//				entity.getCreatedBy(),
+//				entity.getModifiedAt(),
+//				entity.getModifiedBy()
+//		);
+//	}
+	public static BbsDTO from(BbsEntity entity) {
+
+		 return new BbsDTO(
+				entity.getId(),
+				entity.getTitle(),
+				entity.getContent(),
+				entity.getWriter()
+		);
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	public String getWriter() {
-		return writer;
-	}
-
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-
-	@Override
-	public String toString() {
-		return "BbsDTO [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + "]";
-	}
-
-	// getter/setter
-	// toString
-	//ctrl + shift + f : 코드 자동 정리
 }

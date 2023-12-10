@@ -1,28 +1,25 @@
-<%@ page import="com.multi.mvc01.dto.BbsDTO" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: Kang
-  Date: 11/9/23
-  Time: 2:45 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body bgcolor="yellow">
-<%
-    ArrayList<BbsDTO> list = (ArrayList<BbsDTO>) request.getAttribute("list");
-    for (BbsDTO bag : list) {
-
-%>
-게시판 id <%= bag.getId() %> <br>
-<a href = "one?id=<%= bag.getId() %>">게시판 title <%= bag.getTitle() %> </a>
-<br>
-게시판 writer <%= bag.getWriter() %> <br>
-<hr color="red">
-<% } %>
-
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- JSTL(Java Standard Tag Library) -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<table border="1" width="800px">
+    <tr bgcolor="lime">
+        <th>번호</th>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>날씨</th>
+        <th>날짜</th>
+    </tr>
+    <c:forEach items="${list}" var="dto" varStatus="status">
+	    <tr bgcolor="pink">
+	        <td>${status.count}</td>
+	        <td>${dto.name}</td>
+	        <td>
+	       		<a href="one.memo?_id=${dto._id}">${dto.content}</a>
+	        </td>
+	        <td>${dto.weather}</td>
+	        <td>${dto.date}</td>
+	    </tr>
+    </c:forEach>
+</table>

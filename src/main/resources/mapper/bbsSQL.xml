@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="B">
+
+<mapper namespace="com.multi.mvc01.mapper.BbsMapper">
+
+    <select id = "findBbs" parameterType="BbsDTO" resultType="BbsDTO">
+        select * from bbs
+    </select>
+
 
     <insert id = "getBbs" parameterType="bookVO">
         insert into book values (#{id},#{name},#{url},#{img})

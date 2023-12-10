@@ -62,6 +62,8 @@
 						<td><%= bag.getWriter() %></td>
 					</tr>
 				<%} %>
+
+
 				</tbody>
 		</table>
 		
